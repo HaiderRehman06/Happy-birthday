@@ -45,18 +45,38 @@
       btn.style.top = top + 'px';
     }
 
-    btn.addEventListener('mouseenter', function() {
-      if (runAwayCount < 3) {
-        moveButtonRandomly();
-        runAwayCount++;
-      }
-    });
+      btn.addEventListener('mouseenter', function() {
+        if (runAwayCount < 7) {
+          moveButtonRandomly();
+          runAwayCount++;
+          // Show cocky comment
+          let comment = document.getElementById('cockyComment');
+          if (!comment) {
+            comment = document.createElement('div');
+            comment.id = 'cockyComment';
+            comment.style.marginTop = '1em';
+            comment.style.fontSize = '1.2em';
+            comment.style.color = '#d6336c';
+            comment.style.fontWeight = 'bold';
+            document.querySelector('.surprise-container').appendChild(comment);
+          }
+          const comments = [
+            "Too slow! Try harder.",
+            "Is that all you've got?", 
+            "Last Time!",
+            "You really thought that was last 😏?",
+              "You call that effort? Button's not impressed!",
+              "Maybe ask for help, this button is undefeated!"
+            ];
+          comment.textContent = comments[runAwayCount - 1] || "Alright, you win!";
+        }
+      });
 
-    btn.onclick = function() {
-      if (runAwayCount >= 3) {
-        window.location.href = 'second.html';
-      }
-    };
+      btn.onclick = function() {
+        if (runAwayCount >= 7) {
+          window.location.href = 'second.html';
+        }
+      };
   </script>
 </body>
 </html>
