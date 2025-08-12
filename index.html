@@ -1,21 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <title>Happy Birthday</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Surprise Page</title>
+  <style>
+    body { background: #fff0f6; margin: 0; font-family: 'Comic Sans MS', cursive, sans-serif; }
+    .surprise-container {
+      display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;
+    }
+    .surprise-btn {
+      padding: 1em 2em; font-size: 1.5em; background: #ff69b4; color: #fff; border: none; border-radius: 8px; cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2); margin-top: 2em;
+    }
+    .surprise-btn:hover { background: #ff1493; }
+  </style>
 </head>
 <body>
-    <video loop autoplay muted>
-        <source  src="./bg video.mp4" type="video/mp4" >
-    </video>
-    <div class="container">
-        <div class="main">
-            <h1  class="animate__animated animate__zoomInUp">Happy Birthday to You</h1>
-            <a href="./card.html"><button>Next Page</button></a>
-        </div>
-    </div>  
+  <div class="surprise-container">
+  <button class="surprise-btn" id="surpriseBtn" style="opacity:0;transition:opacity 0.8s;">Click for Surprise</button>
+  </div>
+  <script>
+    // Hide button initially
+    const btn = document.getElementById('surpriseBtn');
+    btn.style.opacity = 0;
+    btn.style.pointerEvents = 'none';
+    let runAwayCount = 0;
+    setTimeout(function() {
+      btn.style.opacity = 1;
+      btn.style.pointerEvents = 'auto';
+    }, 0.500);
+
+    function moveButtonRandomly() {
+      const container = document.querySelector('.surprise-container');
+      const containerRect = container.getBoundingClientRect();
+      const btnRect = btn.getBoundingClientRect();
+      // Calculate max left/top so button stays in container
+      const maxLeft = containerRect.width - btnRect.width;
+      const maxTop = containerRect.height - btnRect.height;
+      const left = Math.random() * maxLeft;
+      const top = Math.random() * maxTop;
+      btn.style.position = 'absolute';
+      btn.style.left = left + 'px';
+      btn.style.top = top + 'px';
+    }
+
+    btn.addEventListener('mouseenter', function() {
+      if (runAwayCount < 3) {
+        moveButtonRandomly();
+        runAwayCount++;
+      }
+    });
+
+    btn.onclick = function() {
+      if (runAwayCount >= 3) {
+        window.location.href = 'second.html';
+      }
+    };
+  </script>
 </body>
 </html>
