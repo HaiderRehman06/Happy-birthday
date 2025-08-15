@@ -1,43 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
 body {
-  background: linear-gradient(120deg,#ffb6e9,#e0bbff,#db87ff,#ef6f88,#ff78ae,#ff5dbb);
+  background: linear-gradient(120deg, #ffb6e9, #e0bbff, #db87ff, #ef6f88, #ff78ae, #ff5dbb);
   background-size: 600% 600%;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation: move 20s ease infinite;
+  animation: move 10s ease infinite;
 }
+
 @keyframes move {
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
 }
+
 .card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 640px;
   height: 400px;
-  display: block;
   -webkit-perspective: 1200px;
   perspective: 1200px;
   transition: 1s;
+  margin-top: 40%;
 }
+.button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20%;
+  a{
+    text-decoration: none;
+    color: #fff;
+  }
+  button{
+    background-color: #ffffff;
+    padding: 20px;
+    font-size: 25px;
+    border: none;
+    font-family: "Great Vibes", cursive;
+    border-radius: 30px;
+    color: #000000;
+  }
+}
+
+
 .card:hover {
   transform: rotate(-5deg);
 }
+
 .card:hover .outside {
   transform: rotateY(-130deg);
 }
+
 .outside,
 .inside {
   height: 100%;
@@ -45,6 +75,7 @@ body {
   position: absolute;
   left: 50%;
 }
+
 .inside {
   background: linear-gradient(to right, #e7e7e7, #ffffff 30%);
   padding: 0 20px;
@@ -54,7 +85,24 @@ body {
   justify-content: space-around;
   align-items: center;
   left: 50%;
+
+  p {
+    font-size: 10px;
+  }
+
+  span {
+    font-size: 25px;
+  }
+
 }
+
+.inside img {
+  width: 100px;
+  height: 100px;
+  margin-top: -20px;
+  margin-bottom: -100px;
+}
+
 .outside {
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
@@ -63,6 +111,7 @@ body {
   transition: 2s;
   cursor: pointer;
 }
+
 .front,
 .back {
   height: 100%;
@@ -72,18 +121,22 @@ body {
   backface-visibility: hidden;
   transform: rotateX(0deg);
 }
+
 .front {
   background-color: #ffffff;
 }
+
 .back {
   transform: rotateY(180deg);
   background: linear-gradient(to left, #e7e7e7, #ffffff 30%);
 }
+
 .cake {
   width: 100%;
   position: absolute;
   bottom: 30px;
 }
+
 .top-layer,
 .middle-layer,
 .bottom-layer {
@@ -92,41 +145,41 @@ body {
   background-repeat: repeat;
   background-size: 60px 100px;
   background-position: 28px 0;
-  background-image: linear-gradient(
-      transparent 50px,
+  background-image: linear-gradient(transparent 50px,
       #fedbab 50px,
       #fedbab 60px,
-      transparent 60px
-    ),
+      transparent 60px),
     radial-gradient(circle at 30px 5px, #994c10 30px, #fcbf29 31px);
   border-radius: 10px 10px 0 0;
   position: relative;
   margin: auto;
 }
+
 .middle-layer {
   transform: scale(0.85);
   top: 6px;
 }
+
 .top-layer {
   transform: scale(0.7);
   top: 26px;
 }
+
 .candle {
   height: 45px;
   width: 15px;
-  background: repeating-linear-gradient(
-    45deg,
-    #fd3018 0,
-    #fd3018 5px,
-    #ffa89e 5px,
-    #ffa89e 10px
-  );
+  background: repeating-linear-gradient(45deg,
+      #fd3018 0,
+      #fd3018 5px,
+      #ffa89e 5px,
+      #ffa89e 10px);
   position: absolute;
   margin: auto;
   left: 0;
   right: 0;
   bottom: 202px;
 }
+
 .candle:before {
   content: "";
   position: absolute;
@@ -138,6 +191,7 @@ body {
   transform: rotate(45deg);
   left: -1px;
 }
+
 .outside p {
   font-size: 23px;
   text-transform: uppercase;
@@ -152,14 +206,16 @@ body {
     width: 400px;
     height: 320px;
     margin-left: -100px;
-    }
-    .cake{
-        transform: scale(.5);
-        width: 100%;
-        position: absolute;
-        bottom: -20px;
-    }
-    .candle{
-        margin-left: 110px;
-    }
+  }
+
+  .cake {
+    transform: scale(.5);
+    width: 100%;
+    position: absolute;
+    bottom: -20px;
+  }
+
+  .candle {
+    margin-left: 110px;
+  }
 }
