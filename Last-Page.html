@@ -1,31 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Message</title>
-	<link rel="stylesheet" href="./lastpage.css">
-</head>
-<body>
-	<div class="flip-card" id="flipCard">
-		<div class="flip-card-inner">
-			<div class="flip-card-front">
-				<button class="flip-btn" id="flipBtn" onclick="flipCard()">Flip Card</button>
-			</div>
-			<div class="flip-card-back">
-			</div>
-		</div>
-	</div>
-	<script>
-		function flipCard() {
-			var card = document.getElementById('flipCard');
-			if (!card.classList.contains('flipped')) {
-				card.classList.add('flipped');
-				// Hide the button after flip
-				var btn = document.getElementById('flipBtn');
-				if (btn) btn.style.display = 'none';
-			}
-		}
-	</script>
-</body>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./lastpage.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <div class="front">
+          <div class="images">
+            <img src="./Assets/blackSwan.png" alt="image of Swan">
+            <img src="./Assets/blackSwannn.png" alt="image of Swan">
+          </div>
+          <button>Click To Read</button>
+        </div>
+        <div class="back">
+          <img src="./Assets/Message.jpeg" alt="An image"/>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
